@@ -16,7 +16,7 @@ docker pull maxence27/deep_learning:tag (replace tag by py2 or py3)
 #### Run the image
 docker run -it --runtime=nvidia --privileged maxence27/deep_learning:py2 bash
 
-If you want to use jupyter notebook run : <\br>
+If you want to use jupyter notebook run : </br>
 docker run -it --runtime=nvidia --privileged --net=host maxence27/deep_learning
 
 
