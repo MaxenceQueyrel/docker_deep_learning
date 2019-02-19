@@ -18,7 +18,7 @@ RUN apt-get update -y && \
 ENV PATH=$PATH:/anaconda/bin/
 
 # Install Tensorflow
-RUN pip install --ignore-installed --upgrade tensorflow_gpu
+RUN pip install tensorflow-gpu
 
 # Install Keras
 RUN pip install keras && \
