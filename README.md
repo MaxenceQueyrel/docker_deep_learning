@@ -1,11 +1,13 @@
 # docker deep learning
 
 ### Packages and libraries deployed in the image
-- cuda 9.0 and cudnn 7.0
+- cuda 10.1 and cudnn 7.0
 - Anaconda for python2 or python3 (tag py2 o py3 respectively)
-- TensorFlow
-- pyTorch
-- Keras
+- TensorFlow 2.0.0
+- pyTorch 1.2.0
+- torchtext 0.4.0
+- torchvision 0.4.1
+- torchmeta (py3 only) 1.1.1
 
 ### Package Mandatory
 nvidia-docker is mandatory because all the libraries are installed with GPU enable. See the documentation on the github page : https://github.com/NVIDIA/nvidia-docker

@@ -1,5 +1,5 @@
 # Distribution name
-FROM nvidia/cuda:9.0-cudnn7-devel
+FROM nvidia/cuda:10.1-cudnn7-devel
 
 MAINTAINER Queyrel Maxence <maxencequeyrel@hotmail.com>
 
@@ -9,10 +9,10 @@ ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update -y && \
 	apt-get install bzip2 -y && \
 	apt-get install wget -y && \
-	wget https://repo.anaconda.com/archive/Anaconda2-2018.12-Linux-x86_64.sh && \
-	chmod 755 Anaconda2-2018.12-Linux-x86_64.sh && \
-	bash Anaconda2-2018.12-Linux-x86_64.sh -b -p /anaconda && \
-	rm Anaconda2-2018.12-Linux-x86_64.sh
+	wget https://repo.anaconda.com/archive/Anaconda2-2019.07-Linux-x86_64.sh && \
+	chmod 755 Anaconda2-2019.07-Linux-x86_64.sh && \
+	bash Anaconda2-2019.07-Linux-x86_64.sh -b -p /anaconda && \
+	rm Anaconda2-2019.07-Linux-x86_64.sh
 
 # Change PATH for anaconda
 ENV PATH=$PATH:/anaconda/bin/
@@ -20,12 +20,14 @@ ENV PATH=$PATH:/anaconda/bin/
 # Install Tensorflow
 RUN pip install tensorflow-gpu
 
-# Install Keras
-RUN pip install keras && \
-    mkdir /root/.keras
-
 # Install pytorch
-RUN conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
+RUN conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+
+# Install torchtext
+RUN conda install -c pytorch torchtext
+
+# Install torchvision
+RUN conda install -c pytorch torchvision 
 
 # Add a notebook profile.
 RUN mkdir -p -m 700 /root/.jupyter/ && \
