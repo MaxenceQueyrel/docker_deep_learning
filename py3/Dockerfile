@@ -26,9 +26,6 @@ RUN conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 # Install torchtext
 RUN conda install -c pytorch torchtext
 
-# Install torchvision
-RUN conda install -c pytorch torchvision 
-
 # Install torchmeta
 RUN pip install torchmeta
 

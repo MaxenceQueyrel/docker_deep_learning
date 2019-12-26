@@ -26,9 +26,6 @@ RUN conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 # Install torchtext
 RUN conda install -c pytorch torchtext
 
-# Install torchvision
-RUN conda install -c pytorch torchvision 
-
 # Add a notebook profile.
 RUN mkdir -p -m 700 /root/.jupyter/ && \
     echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
