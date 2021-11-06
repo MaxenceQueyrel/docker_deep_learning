@@ -1,5 +1,5 @@
 NS = 'maxence27'
-VERSION ?= 'py2'
+VERSION ?= 'py3_cuda_10.1'
 
 REPO = 'deep_learning'
 NAME = 'deep_learning'

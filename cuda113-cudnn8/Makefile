@@ -1,14 +1,17 @@
 NS = 'maxence27'
-VERSION ?= 'py3'
+VERSION ?= 'cuda113-cudnn8'
 
 REPO = 'deep_learning'
 NAME = 'deep_learning'
 INSTANCE = 'default'
 
-.PHONY: build push shell run start stop rm release
+.PHONY: build build_no_cache push shell run start stop rm release
 
 build:
 	docker build -t $(NS)/$(REPO):$(VERSION) .
+
+build_no_cache:
+	docker build --no-cache -t $(NS)/$(REPO):$(VERSION) .
 
 push:
 	docker push $(NS)/$(REPO):$(VERSION)
