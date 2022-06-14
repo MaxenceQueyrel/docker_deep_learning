@@ -1,5 +1,5 @@
 # Distribution name
-FROM nvidia/cuda:11.3.0-cudnn8-devel
+FROM nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04
 
 LABEL org.opencontainers.image.authors="maxxxqueyrel@gmail.com"
 
@@ -19,12 +19,12 @@ RUN wget https://repo.anaconda.com/miniconda/$miniconda_version && \
 # Change PATH for anaconda
 ENV PATH=$PATH:/anaconda/bin/
 
-# Install tensorflow, pytorch, torchvision, torchaudio, torchtext, ax and ray
-RUN pip install tensorflow && \
-  pip3 install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html && \
-  pip install torchtext && \
-  pip install ax-platform && \
+# Install tensorflow, pytorch, pytorch lightning, torchvision, torchaudio, torchtext, ax and ray tune
+RUN pip install tensorflow==2.9.1 && \
+  pip3 install torch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113 && \
+  pip install torchtext==0.12.0 && \
+  pip install ax-platform==0.2.5.1 && \
   pip install 'ray[tune]' && \
-  pip install pytorch-lightning
+  pip install pytorch-lightning==1.6.4
 
 

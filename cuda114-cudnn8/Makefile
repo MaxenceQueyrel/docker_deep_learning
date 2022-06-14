@@ -1,5 +1,5 @@
 NS = 'maxence27'
-VERSION ?= 'cuda113-cudnn8'
+VERSION ?= 'cuda114-cudnn8'
 
 REPO = 'deep_learning'
 NAME = 'deep_learning'
